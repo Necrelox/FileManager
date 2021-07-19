@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.19)
+project(FileManager C)
+set(CMAKE_C_STANDARD 99)
+include_directories(./include/File)
+file(GLOB FileManager_SRC CONFIGURE_DEPENDS "lib/*.c")
+add_library(FileManager STATIC ${FileManager_SRC})
