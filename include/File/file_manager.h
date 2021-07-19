@@ -78,7 +78,7 @@ int file_close(file_s **file);
 ///
 /// \brief destroy the structure and can remove file if keep set to 0
 ///
-/// \param[in] file the structure
+/// \param[in] file structure
 /// \param[in] keep if keep is set to 0 the file is removed
 ///
 /// \return 0 if all is good else return -1
@@ -90,11 +90,28 @@ void file_struct_destroy(file_s *file, short keep);
 ///
 /// \date 19/07/21
 ///
+/// \fn size_t file_getsize(file_s *file);
+///
+/// \brief get size of file
+///
+/// \param[in] file structure
+///
+/// \return size else return -1
+///
+////////////////////////////////////////////////////////////
+size_t file_getsize(file_s *file);
+
+int file_insert(file_s *file, size_t pos, const char *strinsert);
+
+////////////////////////////////////////////////////////////
+///
+/// \date 19/07/21
+///
 /// \fn int file_append(file_s *file, const char *strappend);
 ///
 /// \brief append a string in the file
 ///
-/// \param[in] structure file
+/// \param[in] file structure
 /// \param[in] strappend string you want append in file
 ///
 /// \return 0 if all is good else return -1
