@@ -101,6 +101,21 @@ void file_struct_destroy(file_s *file, short keep);
 ////////////////////////////////////////////////////////////
 size_t file_getsize(file_s *file);
 
+////////////////////////////////////////////////////////////
+///
+/// \date 19/07/21
+///
+/// \fn int file_insert(file_s *file, size_t pos, const char *strinsert);
+///
+/// \brief insert a bloc to the pos in file
+///
+/// \param[in] file structure
+/// \param[in] pos position of bloc to insert
+/// \param[in] strinsert string you want insert in file
+///
+/// \return 0 if all is good else return -1
+///
+////////////////////////////////////////////////////////////
 int file_insert(file_s *file, size_t pos, const char *strinsert);
 
 ////////////////////////////////////////////////////////////
@@ -119,5 +134,21 @@ int file_insert(file_s *file, size_t pos, const char *strinsert);
 ////////////////////////////////////////////////////////////
 int file_append(file_s *file, const char *strappend);
 
+////////////////////////////////////////////////////////////
+///
+/// \date 19/07/21
+///
+/// \fn char *file_read(file_s *file, size_t size, size_t pos);
+///
+/// \brief read file, you can give size and pos
+///
+/// \param[in] file structure
+/// \param[in] size size of bloc you want read
+/// \param[in] pos where do you want get the bloc
+///
+/// \return bloc with \0 or NULL if catch error
+///
+////////////////////////////////////////////////////////////
+char *file_read(file_s *file, size_t size, size_t pos);
 
 #endif //FILEMANAGER_FILE_MANAGER_H
