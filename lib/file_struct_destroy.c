@@ -6,6 +6,7 @@
 */
 
 #include "file_structure.h"
+#include <stdlib.h>
 
 void file_struct_destroy(file_s *file, short keep)
 {
