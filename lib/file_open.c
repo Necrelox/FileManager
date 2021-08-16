@@ -6,11 +6,15 @@
 */
 
 #include "file_structure.h"
+#include <stdlib.h>
+#include <string.h>
 
-int file_open(file_s **file)
+file_s *file_open(const char *path)
 {
-    (*file)->file = fopen((*file)->path, "a");
-    if (!(*file)->file)
-        return -1;
-    return 0;
+    file_s *file = malloc(sizeof(*file));
+    if (!(file->path = strndup(path, strlen(path)))) {
+        free(file);
+        return NULL;
+    }
+    return file;
 }

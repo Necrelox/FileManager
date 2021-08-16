@@ -8,6 +8,9 @@
 #include "file_structure.h"
 
 enum what {EXIST = 0, READ = 4, WRITE = 2, EXEC = 1};
+/** using macro for storage function*/
+#define FILE_GET 2021
+#define FILE_SET -2021
 
 ////////////////////////////////////////////////////////////
 ///
@@ -18,7 +21,7 @@ enum what {EXIST = 0, READ = 4, WRITE = 2, EXEC = 1};
 /// \brief check file acces Exist/Read/Write/Exec
 ///
 /// \param[in] path you want to check
-/// \param[in] what EXIT = 0, READ = 4, WRITE = 2, EXEC = 1
+/// \param[in] what EXIST = 0, READ = 4, WRITE = 2, EXEC = 1
 ///
 /// \return 0 if all is good else -1
 ///
@@ -44,31 +47,16 @@ file_s *file_create(const char *name);
 ///
 /// \date 19/07/21
 ///
-/// \fn int file_open(file_s **file);
+/// \fn file_s *file_open(const char *path);
 ///
-/// \brief open file (before use file_create)
+/// \brief use a existing file with file manage
 ///
-/// \param[in, out] file structure contain the path you want open
+/// \param[in] path path of file
 ///
-/// \return 0 if all is good else return -1
-///
-////////////////////////////////////////////////////////////
-int file_open(file_s **file);
-
-////////////////////////////////////////////////////////////
-///
-/// \date 19/07/21
-///
-/// \fn int file_close(file_s **file);
-///
-/// \brief close file (before use file_create and file_open)
-///
-/// \param[in] file structure with the file
-///
-/// \return 0 if all is good else return -1
+/// \return structure file_s else NULL
 ///
 ////////////////////////////////////////////////////////////
-int file_close(file_s **file);
+file_s *file_open(const char *path);
 
 ////////////////////////////////////////////////////////////
 ///
@@ -136,6 +124,23 @@ int file_append(file_s *file, const char *strappend);
 
 ////////////////////////////////////////////////////////////
 ///
+/// \date 09/08/21
+///
+/// \fn int file_append_bytes(file_s *file, const char *byteappend, size_t size);
+///
+/// \brief append bytes in the file
+///
+/// \param[in] file structure
+/// \param[in] byteappend bytes you want append in file
+/// \param[in] size number of bytes
+///
+/// \return 0 if all is good else return -1
+///
+////////////////////////////////////////////////////////////
+int file_append_bytes(file_s *file, const char *byteappend, size_t size);
+
+////////////////////////////////////////////////////////////
+///
 /// \date 19/07/21
 ///
 /// \fn char *file_read(file_s *file, size_t size, size_t pos);
@@ -150,5 +155,39 @@ int file_append(file_s *file, const char *strappend);
 ///
 ////////////////////////////////////////////////////////////
 char *file_read(file_s *file, size_t size, size_t pos);
+
+////////////////////////////////////////////////////////////
+///
+/// \date 09/08/21
+///
+/// \fn size_t *file_search(file_s *file, size_t pos, const char *wantbyte, size_t wantbytesize);
+///
+/// \brief search bytes field in file
+///
+/// \param[in] file structure if you want set else null
+/// \param[in] pos where you want search the occurence of bytes field
+/// \param[in] wantbytes bytes field you want find
+/// \param[in] wantbytesize size of field
+///
+/// \return -1 if the occurences is not find else pos of occurence
+///
+////////////////////////////////////////////////////////////
+size_t file_search(file_s *file, size_t pos, const char *wantbyte, size_t wantbytesize);
+
+////////////////////////////////////////////////////////////
+///
+/// \date 09/08/21
+///
+/// \fn file_s *file_storage_getset(short action, void *file);
+///
+/// \brief store your file structure and retrieve it anywhere and anytime
+///
+/// \param[in] action FILE_GET or FILE_SET
+/// \param[in] file structure if you want set else null
+///
+/// \return NULL if you set else return file structure if struct is empty return null
+///
+////////////////////////////////////////////////////////////
+file_s *file_storage_getset(short action, void *file);
 
 #endif //FILEMANAGER_FILE_MANAGER_H

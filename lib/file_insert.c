@@ -14,6 +14,7 @@ int file_insert(file_s *file, size_t pos, const char *strinsert)
     if (!file->file)
         return -1;
     fseek(file->file, pos, SEEK_SET);
+    file->head_pos = ftell(file->file);
     fputs(strinsert, file->file);
     fclose(file->file);
     return 0;
