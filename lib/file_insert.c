@@ -13,9 +13,17 @@ int file_insert(file_s *file, size_t pos, const char *strinsert)
     file->file = fopen(file->path, "r+b");
     if (!file->file)
         return -1;
+    fseek(file->file, 0, SEEK_END);
+    size_t size = ftell(file->file);
+    char buff[(size-pos)+1];
+    buff[size-pos] = 0;
     fseek(file->file, pos, SEEK_SET);
+    fread(buff, size-pos, 1, file->file);
+    fseek(file->file, pos, SEEK_SET);
+    fwrite(strinsert, strlen(strinsert), 1, file->file);
+    fseek(file->file, pos + strlen(strinsert), SEEK_SET);
+    fwrite(buff, size-pos, 1, file->file);
     file->head_pos = ftell(file->file);
-    fputs(strinsert, file->file);
     fclose(file->file);
     return 0;
 }
