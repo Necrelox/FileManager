@@ -1,8 +1,10 @@
 /*
-** EPITECH PROJECT, 2021
-** file_open
-** File description:
-** file_open
+**
+** Made by Necrelox
+** Login   <necrelox@gmail.com>
+**
+** Started on  Mon Aug 23 15:38:38 2021 Necrelox
+** Last update Mon Aug 23 15:38:38 2021 Necrelox
 */
 
 #include "file_structure.h"

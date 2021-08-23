@@ -1,8 +1,10 @@
 /*
-** EPITECH PROJECT, 2021
-** loto
-** File description:
-** file_storage
+**
+** Made by Necrelox
+** Login   <necrelox@gmail.com>
+**
+** Started on  Mon Aug 23 15:03:40 2021 Necrelox
+** Last update Tue Aug 23 15:37:50 2021 Necrelox
 */
 
 #include "file_structure.h"

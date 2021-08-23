@@ -1,8 +1,10 @@
 /*
-** EPITECH PROJECT, 2021
-** file_struct_destroy
-** File description:
-** file_struct_destroy
+**
+** Made by Necrelox
+** Login   <necrelox@gmail.com>
+**
+** Started on  Mon Aug 23 15:03:35 2021 Necrelox
+** Last update Tue Aug 23 15:37:55 2021 Necrelox
 */
 
 #include "file_structure.h"
