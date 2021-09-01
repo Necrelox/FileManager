@@ -17,8 +17,7 @@
 typedef struct file_t
 {
     FILE *file; /** file you want manage */
-    char *path; /***/
-    size_t head_pos; /***/
+    char *path; /** path of your file*/
 }file_s;
 
 #endif /* !FILE_STRUCTURE_H_ */

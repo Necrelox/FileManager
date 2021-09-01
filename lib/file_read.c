@@ -15,8 +15,13 @@ char *file_read(file_s *file, size_t size, size_t pos)
     file->file = fopen(file->path, "r");
     if (!file->file)
         return NULL;
+    fseek(file->file, 0, SEEK_END);
+    size_t fsize = ftell(file->file);
+    if (fsize < pos) {
+        fclose(file->file);
+        return -1;
+    }
     fseek(file->file, pos, SEEK_SET);
-    file->head_pos = ftell(file->file);
     char *buff = malloc(sizeof(char) * size + 1);
     fread(buff, size, 1, file->file);
     buff[size] = 0;

@@ -18,5 +18,6 @@ file_s *file_open(const char *path)
         free(file);
         return NULL;
     }
+    file->file = NULL;
     return file;
 }

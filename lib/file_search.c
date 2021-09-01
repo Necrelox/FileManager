@@ -17,6 +17,10 @@ size_t file_search(file_s *file, size_t pos, const char *wantbyte, size_t wantby
         return -1;
     fseek(file->file, 0, SEEK_END);
     size_t size = ftell(file->file);
+    if (size < pos) {
+        fclose(file->file);
+        return -1;
+    }
     fseek(file->file, pos, SEEK_SET);
 
     char bf[1];

@@ -4,7 +4,7 @@
 ** Login   <necrelox@gmail.com>
 **
 ** Started on  Mon Aug 23 15:38:58 2021 Necrelox
-** Last update Mon Aug 23 15:38:58 2021 Necrelox
+** Last update Thu Sep 1 21:22:15 2021 Necrelox
 */
 
 #include "file_structure.h"
@@ -28,5 +28,6 @@ file_s *file_create(const char *name)
         free(file);
         return NULL;
     }
+    file->file = NULL;
     return file;
 }

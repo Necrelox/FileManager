@@ -17,6 +17,10 @@ int file_insert(file_s *file, size_t pos, const char *strinsert)
         return -1;
     fseek(file->file, 0, SEEK_END);
     size_t size = ftell(file->file);
+    if (size < pos) {
+        fclose(file->file);
+        return -1;
+    }
     char buff[(size-pos)+1];
     buff[size-pos] = 0;
     fseek(file->file, pos, SEEK_SET);
@@ -25,7 +29,6 @@ int file_insert(file_s *file, size_t pos, const char *strinsert)
     fwrite(strinsert, strlen(strinsert), 1, file->file);
     fseek(file->file, pos + strlen(strinsert), SEEK_SET);
     fwrite(buff, size-pos, 1, file->file);
-    file->head_pos = ftell(file->file);
     fclose(file->file);
     return 0;
 }
