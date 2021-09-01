@@ -80,6 +80,6 @@ Il vous suffira seulement de la link à la compilation.
 
 **file_search**
 
-| Return   | Parameters                                                          | Description                                                                                                                |
-| -------- | ------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------- |
-| file_s * | file_s *file, size_t pos, const char *wantbyte, size_t wantbytesize | Cherche un champ d'octet dans le fichier à partir de la position donnée, si la le champ est trouvé il renvoie la position. |
+| Return   | Parameters                                                          | Description                                                                                                              |
+| -------- | ------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------ |
+| file_s * | file_s *file, size_t pos, const char *wantbyte, size_t wantbytesize | Cherche un champ d'octets dans le fichier à partir de la position donnée, si le champ est trouvé il renvoie la position. |
