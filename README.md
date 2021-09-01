@@ -52,7 +52,7 @@ Il vous suffira seulement de la link à la compilation.
 
 | Return   | Parameters                                      | Description                                                          |
 | -------- | ----------------------------------------------- | -------------------------------------------------------------------- |
-| file_s * | short action (FILE_GET ou FILE_SET), void *file | stocker la structure file_s et retrouvez là partout et à tout moment |
+| file_s * | short action (FILE_GET ou FILE_SET), void *file | stockez la structure file_s et retrouvez là partout et à tout moment |
 
 **file_append**
 
