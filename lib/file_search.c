@@ -34,7 +34,6 @@ size_t file_search(file_s *file, size_t pos, const char *wantbyte, size_t wantby
             return keeppos;
         }
     }
-    file->head_pos = ftell(file->file);
     fclose(file->file);
     return -1;
 }
